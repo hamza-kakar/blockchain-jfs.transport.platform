@@ -175,56 +175,6 @@ http://35.175.131.198:3000/api/jfs.transport.platform.AssignCarrier
 ```
 
 
-### (2) Assign Carrier
-
-this will be done by a broker. in example given below the Broker with id "br1" is assigning a load of id "lo1" to a Carrier of id "ca1"</br>
-<b>Operations performed:</b>
-* increments `numberOfTripsConducted` of carrier
-* inserts new category in `typeOfLoadsHandled` if type is new.
-* inserts carrier id to `carrier` in selected load. (assigns carrier to load)
-
-```
-{
- "$class": "jfs.transport.platform.AssignCarrier",
- "billOfLanding": "xyz",
- "load": "resource:jfs.transport.platform.Load#lo1",
- "broker": "resource:jfs.transport.platform.Broker#br1",
- "carrier": "resource:jfs.transport.platform.Carrier#ca1"
-}
-
-```
-##### Request URL 
-``` 
-http://35.175.131.198:3000/api/jfs.transport.platform.AssignCarrier
- 
-```
-
-### (2) Assign Carrier
-
-this will be done by a broker. in example given below the Broker with id "br1" is assigning a load of id "lo1" to a Carrier of id "ca1". A `billOfLanding` is also required for this operation.</br>
-<b>Operations performed:</b>
-* increments `numberOfTripsConducted` of carrier
-* inserts new category in `typeOfLoadsHandled` if type is new.
-* inserts carrier id to `carrier` in selected load. (assigns carrier to load)
-* updates the load `status` to "CARRIER_ASSIGNED". 
-* inserts the `billOfLanding` to Load. 
-
-```
-{
- "$class": "jfs.transport.platform.AssignCarrier",
- "billOfLanding": "xyz",
- "load": "resource:jfs.transport.platform.Load#lo1",
- "broker": "resource:jfs.transport.platform.Broker#br1",
- "carrier": "resource:jfs.transport.platform.Carrier#ca1"
-}
-
-```
-##### Request URL 
-``` 
-http://35.175.131.198:3000/api/jfs.transport.platform.AssignCarrier
- 
-```
-
 ### (3) Assign Truck
 
 this will be done by a Carrier. in example given below the Carrier with id "ca1" is assigning a load of id "lo1"  to Driver of id "dr1". A `pickUpTime` (load pickup time) is also required for this operation.</br>
